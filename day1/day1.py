@@ -15,7 +15,7 @@ def parse(lines: list[str]) -> list[int]:
 def calorieTotalOfTopN(elves: list[int], n: int) -> int:
 	return sum(elves[0:n])
 
-elves_file = open(os.path.join(os.path.dirname(__file__), "elves.txt"), "r")
+elves_file = open(os.path.join(os.path.dirname(__file__), "elves.my_data"), "r")
 elves_lines = [line.strip() for line in elves_file.readlines()]
 
 elves = parse(elves_lines)

@@ -8,7 +8,7 @@ def points_for_tournament(lines: list[str], strategy: StrategyInterface) -> int:
 		point_total += strategy.determine_point_total_from(line.strip())
 	return point_total
 
-strategy_file = open(os.path.join(os.path.dirname(__file__), "strategy.txt"), "r")
+strategy_file = open(os.path.join(os.path.dirname(__file__), "strategy.my_data"), "r")
 strategy_file_lines = strategy_file.readlines()
 
 test_lines = """A Y
