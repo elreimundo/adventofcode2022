@@ -1,6 +1,6 @@
 import os
 from piece import Piece, Rock, Paper, Scissors
-from strategy import StrategyInterface, NaiveStrategy, SecretStrategy
+from strategy import StrategyInterface, NaiveStrategy, SecretStrategy, MathOnlyNaiveStrategy, MathOnlySecretStrategy
 
 def points_for_tournament(lines: list[str], strategy: StrategyInterface) -> int:
 	point_total = 0
@@ -15,28 +15,6 @@ test_lines = """A Y
 B X
 C Z""".splitlines()
 
-print(
-	points_for_tournament(
-		test_lines,
-		NaiveStrategy()
-	)
-)
-print(
-	points_for_tournament(
-		strategy_file_lines,
-		NaiveStrategy()
-	)
-)
-
-print(
-	points_for_tournament(
-		test_lines,
-		SecretStrategy()
-	)
-)
-print(
-	points_for_tournament(
-		strategy_file_lines,
-		SecretStrategy()
-	)
-)
+for strategy in [NaiveStrategy(), SecretStrategy(), MathOnlyNaiveStrategy(), MathOnlySecretStrategy()]:
+	print(points_for_tournament(test_lines, strategy))
+	print(points_for_tournament(strategy_file_lines, strategy))
