@@ -1,4 +1,5 @@
 from piece import Piece, Rock, Paper, Scissors
+from mathonly.mathonly import game_points_naive_solution, game_points_secret_solution, parse_input
 
 # abstract class for a strategy
 class StrategyInterface:
@@ -43,3 +44,13 @@ class SecretStrategy(StrategyInterface):
 			case "Y": return opponent_guess
 			case "Z": return opponent_guess.would_lose_to()
 			case _: raise Exception("unexpected input: " + input)
+
+class MathOnlyNaiveStrategy(StrategyInterface):
+	def determine_point_total_from(self, line: str) -> int:
+		(opponent_guess, my_guess) = parse_input(line)
+		return game_points_naive_solution(opponent_guess, my_guess)
+
+class MathOnlySecretStrategy(StrategyInterface):
+	def determine_point_total_from(self, line: str) -> int:
+		(opponent_guess, result) = parse_input(line)
+		return game_points_secret_solution(opponent_guess, result)
