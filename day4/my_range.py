@@ -8,6 +8,3 @@ class Range:
 
 	def fully_contains(self, other) -> bool:
 		return self.min <= other.min and self.max >= other.max
-
-	def __repr__(self):
-		return f'Range({self.min}-{self.max})'
